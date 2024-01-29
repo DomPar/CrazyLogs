@@ -15,7 +15,7 @@ function Car(x, y, parent, cars, player){
 
     this.moveCar = function() {
         self.checkCollision()
-        var newX = self.x + 50
+        var newX = self.x + 25
         if (newX >= 0 && newX <= 500) {
             self.x = newX
             self.sprite.style.left = self.x + 'px'
@@ -39,10 +39,10 @@ function Car(x, y, parent, cars, player){
     this.removeCar = function() {
         cars.shift();
         parent.removeChild(this.sprite)
-        clearInterval(timerId)
+        clearInterval(this.timerId)
     }
 
-    var timerId = setInterval(this.moveCar, 1000)
+    this.timerId = setInterval(this.moveCar, 500)
 }
 
 

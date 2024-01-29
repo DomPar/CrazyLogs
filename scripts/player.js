@@ -8,6 +8,7 @@ function Player(x, y, parent){
     this.height = 50;
     this.sprite = document.createElement('div')
     this.isDead = false;
+    this.won = false;
 
 
     this.insertPlayer = function() {
@@ -30,6 +31,10 @@ function Player(x, y, parent){
         if (newY >= 0 && newY <= 500) {
             self.y = newY
             self.sprite.style.top = self.y + 'px'
+        }
+        if (self.y === 0) {
+            console.log("Ganaste");
+            self.won = true;
         }
     }
 }

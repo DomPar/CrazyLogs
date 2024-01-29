@@ -9,12 +9,14 @@ var carId = null;
 var cars = []
 var logId = null;
 var logs = []
+var logLeftId = null;
 
 function gameStart() {
     player.insertPlayer()
     playerId = setInterval(movement, 100)
     carId = setInterval(createCar, 2000)
-    logId = setInterval(createLog, 2000)
+    logId = setInterval(createLog, 3000)
+    logLeftId = setInterval(createLogLeft, 3000)
 }
 
 function movement() {
@@ -24,6 +26,16 @@ function movement() {
     } else {
         clearInterval(playerId)
         clearInterval(carId)
+        clearInterval(logId)
+        clearInterval(logLeftId)
+        cars.forEach(function(car){clearInterval(car.timerId)})
+        logs.forEach(function(log){clearInterval(log.timerId)})
+    }
+    if (player.won === true) {
+        clearInterval(playerId)
+        clearInterval(carId)
+        clearInterval(logId)
+        clearInterval(logLeftId)
         cars.forEach(function(car){clearInterval(car.timerId)})
         logs.forEach(function(log){clearInterval(log.timerId)})
     }
@@ -38,11 +50,17 @@ function createCar() {
 }
 
 function createLog() {
-    var values = [100, 150, 200]
+    var values = [100, 200]
     var coordY = values[Math.floor(Math.random()*values.length)]
-    var log = new Log(0, coordY, board, logs, player)
+    var log = new Log(0, coordY, board, logs, player, 1)
     log.insertLog();
     logs.push(log)
+}
+
+function createLogLeft() {
+    var logIzq = new Log(400, 150, board, logs, player, -1)
+    logIzq.insertLog();
+    logs.push(logIzq)
 }
 
 window.addEventListener('keydown', function(e){

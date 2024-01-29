@@ -29,6 +29,7 @@ position: absolute;
 top: 500px;
 background-color: green;
 left: 250px;
+z-index: 2;
 }
 
 .car{
@@ -39,17 +40,16 @@ background-color: red;
 }
 
 .log{
-width: 100px;
+width: 150px;
 height: 50px;
 position: absolute;
 background-color: brown;
 }
 
 #goal{
-    width: 50px;
+    width: 550px;
     height: 50px;
     position: absolute;
     background-color: rgb(250, 236, 39);
-    left: 250px;
 }
 
