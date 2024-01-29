@@ -1,0 +1,55 @@
+#board{
+height: 550px;
+width: 550px;
+border: 1px solid;
+margin: auto;
+position: relative;
+}
+
+#road{
+width: 550px;
+height: 150px;
+background-color: gray;
+position: absolute;
+top: 300px;
+}
+
+#river{
+width: 550px;
+height: 150px;
+background-color: rgb(25, 143, 197);
+position: absolute;
+top: 100px;
+}
+
+#player{
+width: 50px;
+height: 50px;
+position: absolute;
+top: 500px;
+background-color: green;
+left: 250px;
+}
+
+.car{
+width: 50px;
+height: 50px;
+position: absolute;
+background-color: red;
+}
+
+.log{
+width: 100px;
+height: 50px;
+position: absolute;
+background-color: brown;
+}
+
+#goal{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: rgb(250, 236, 39);
+    left: 250px;
+}
+
