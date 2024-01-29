@@ -10,13 +10,16 @@ var cars = []
 var logId = null;
 var logs = []
 var logLeftId = null;
+var carLeftId = null;
 
 function gameStart() {
     player.insertPlayer()
-    playerId = setInterval(movement, 100)
+    playerId = setInterval(movement, 50)
     carId = setInterval(createCar, 2000)
+    carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 4000)
     logLeftId = setInterval(createLogLeft, 6000)
+
 }
 
 function movement() {
@@ -26,6 +29,7 @@ function movement() {
     } else {
         clearInterval(playerId)
         clearInterval(carId)
+        clearInterval(carLeftId)
         clearInterval(logId)
         clearInterval(logLeftId)
         cars.forEach(function(car){clearInterval(car.timerId)})
@@ -34,6 +38,7 @@ function movement() {
     if (player.won === true) {
         clearInterval(playerId)
         clearInterval(carId)
+        clearInterval(carLeftId)
         clearInterval(logId)
         clearInterval(logLeftId)
         cars.forEach(function(car){clearInterval(car.timerId)})
@@ -42,9 +47,17 @@ function movement() {
 }
 
 function createCar() {
-    var values = [300, 350, 400]
+    var values = [300, 350]
     var coordY = values[Math.floor(Math.random()*values.length)]
-    var car = new Car(0, coordY, board, cars, player)
+    var car = new Car(0, coordY, board, cars, player, 1)
+    car.insertCar();
+    cars.push(car)
+}
+
+function createCarLeft() {
+    var values = [400, 450]
+    var coordY = values[Math.floor(Math.random()*values.length)]
+    var car = new Car(500, coordY, board, cars, player, -1)
     car.insertCar();
     cars.push(car)
 }

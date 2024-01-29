@@ -19,7 +19,7 @@ function Player(x, y, parent){
     }
 
     this.movePlayerX = function() {
-        var newX = self.x + 20 * self.directionX
+        var newX = self.x + 10 * self.directionX
         if (newX >= 0 && newX <= 500) {
             self.x = newX
             self.sprite.style.left = self.x + 'px'
@@ -27,7 +27,7 @@ function Player(x, y, parent){
     }
 
     this.movePlayerY = function() {
-        var newY = self.y + 20 * self.directionY
+        var newY = self.y + 10 * self.directionY
         if (newY >= 0 && newY <= 500) {
             self.y = newY
             self.sprite.style.top = self.y + 'px'
