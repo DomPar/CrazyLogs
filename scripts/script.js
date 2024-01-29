@@ -15,8 +15,8 @@ function gameStart() {
     player.insertPlayer()
     playerId = setInterval(movement, 100)
     carId = setInterval(createCar, 2000)
-    logId = setInterval(createLog, 3000)
-    logLeftId = setInterval(createLogLeft, 3000)
+    logId = setInterval(createLog, 4000)
+    logLeftId = setInterval(createLogLeft, 6000)
 }
 
 function movement() {

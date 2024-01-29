@@ -23,7 +23,7 @@ function Log(x, y, parent, logs, player, direction){
                 self.x = newX
                 self.sprite.style.left = self.x + 'px'
             } else {
-            self.removeLog()
+                self.removeLog()
             }
         } else {
             var newX = self.x - 50
@@ -31,20 +31,24 @@ function Log(x, y, parent, logs, player, direction){
                 self.x = newX
                 self.sprite.style.left = self.x + 'px'
             } else {
-            self.removeLog()
+                self.removeLog()
             }
         }
     }
 
     this.checkCollision = function() {
-        if (
+        var overlap = (
             this.x < player.x + player.width &&
             this.y < player.y + player.height &&
             this.x + this.width > player.x && 
             this.y + this.height > player.y
-        ) {
+            )
+        if (overlap && player.y <= 200 && player.y >= 100){
+            player.isDead = false;
+            console.log("A salvo");
+        } else if (!overlap && player.y <= 200 && player.y >= 100) {
             player.isDead = true;
-            console.log("La cagaste");
+            console.log("Muerta");
         }
     }
 
@@ -54,7 +58,7 @@ function Log(x, y, parent, logs, player, direction){
         clearInterval(this.timerId)
     }
 
-    this.timerId = setInterval(this.moveLog, 500)
+    this.timerId = setInterval(this.moveLog, 1000)
 }
 
 
