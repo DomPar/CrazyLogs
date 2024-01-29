@@ -7,6 +7,7 @@ function Player(x, y, parent){
     this.width = 50;
     this.height = 50;
     this.sprite = document.createElement('div')
+    this.isDead = false;
 
 
     this.insertPlayer = function() {
