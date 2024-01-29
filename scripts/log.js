@@ -16,7 +16,6 @@ function Log(x, y, parent, logs, player, direction){
     }
 
     this.moveLog = function() {
-        self.checkCollision()
         if(self.direction === 1){
             var newX = self.x + 50
             if (newX <= 400) {
@@ -34,6 +33,7 @@ function Log(x, y, parent, logs, player, direction){
                 self.removeLog()
             }
         }
+        self.checkCollision()
     }
 
     this.checkCollision = function() {
