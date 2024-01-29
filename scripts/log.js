@@ -1,26 +1,26 @@
-function Car(x, y, parent, cars, player){
+function Log(x, y, parent, logs, player){
     var self = this
     this.x = x;
     this.y = y;
-    this.width = 50;
+    this.width = 100;
     this.height = 50;
     this.sprite = document.createElement('div')
 
 
-    this.insertCar = function() {
-        this.sprite.setAttribute('class', 'car');
+    this.insertLog = function() {
+        this.sprite.setAttribute('class', 'log');
         this.sprite.style.top = this.y + 'px'
         parent.appendChild(this.sprite)
     }
 
-    this.moveCar = function() {
+    this.moveLog = function() {
         self.checkCollision()
         var newX = self.x + 50
-        if (newX >= 0 && newX <= 500) {
+        if (newX >= 0 && newX <= 450) {
             self.x = newX
             self.sprite.style.left = self.x + 'px'
         } else {
-            self.removeCar()
+            self.removeLog()
         }
     }
 
@@ -36,14 +36,14 @@ function Car(x, y, parent, cars, player){
         }
     }
 
-    this.removeCar = function() {
-        cars.shift();
+    this.removeLog = function() {
+        logs.shift();
         parent.removeChild(this.sprite)
         clearInterval(timerId)
     }
 
-    var timerId = setInterval(this.moveCar, 500)
+    var timerId = setInterval(this.moveLog, 500)
 }
 
 
-export {Car}
+export {Log}
