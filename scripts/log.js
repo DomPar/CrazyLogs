@@ -33,10 +33,7 @@ function Log(x, y, parent, logs, player, direction){
 /*         self.checkCollision() */
     }
     this.isInLog = function() {
-       console.log(self.x <= player.x && self.x + self.width >= player.x + player.width);
         if (self.y === player.y && self.x <= player.x && self.x + self.width >= player.x + player.width) {
-         console.log(self.y + " === " + player.y);
-
             return true;
         } else {
             return false;

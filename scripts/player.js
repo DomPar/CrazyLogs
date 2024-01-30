@@ -41,11 +41,7 @@ function Player(x, y, parent, logs){
     
     this.dead = function () {
         if (self.y <= 200 && self.y >= 100) {
-/*             logs.forEach(log => {
-                console.log(log.isInLog())
-                
-            }); */
-            if(self.checkLogs()){
+            if(logs.some(log => log.isInLog())){
                 self.isDead = false;
                 console.log("Viva");;
             } else {
@@ -53,16 +49,6 @@ function Player(x, y, parent, logs){
                 /* self.isDead = true; */
             }
         }
-    }
-
-    this.checkLogs = function() {
-        var tronco = false;
-        logs.forEach(log => {
-            if (log.isInLog()) {
-                tronco = true;
-            }
-        });
-        return tronco;
     }
 }
 
