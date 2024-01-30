@@ -3,6 +3,7 @@ import {Car} from './car.js'
 import {Log} from './log.js'
 
 var board = document.getElementById("board")
+var boton = document.getElementById("start")
 var playerId = null;
 var carId = null;
 var cars = []
@@ -12,6 +13,7 @@ var logLeftId = null;
 var carLeftId = null;
 var playerDeadId = null;
 var player = new Player(250, 500, board, logs)
+var estadoToggle = true;
 
 function gameStart() {
     player.insertPlayer()
@@ -21,7 +23,7 @@ function gameStart() {
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
     logLeftId = setInterval(createLogLeft, 10000)
-
+    boton.innerText = "Reset"
 }
 
 function movement() {
@@ -107,4 +109,11 @@ window.addEventListener('keyup', function()
     player.directionY = 0
 })
 
-gameStart();
+start.addEventListener("click",function() {
+    if (estadoToggle) {
+        gameStart()
+    } else {
+        window.reload();
+    }
+    estadoToggle = !estadoToggle
+});
