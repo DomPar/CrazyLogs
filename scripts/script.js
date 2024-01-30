@@ -11,12 +11,12 @@ var logs = []
 var logLeftId = null;
 var carLeftId = null;
 var playerDeadId = null;
-var player = new Player(255, 500, board, logs)
+var player = new Player(255, 50, board, logs)
 
 function gameStart() {
     player.insertPlayer()
     playerId = setInterval(movement, 200)
-    playerDeadId = setInterval(player.dead, 50)
+    /* playerDeadId = setInterval(player.dead, 50) */
     carId = setInterval(createCar, 2000)
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
