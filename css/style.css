@@ -1,12 +1,37 @@
+body {
+    /* background-color: lightgreen; */
+    background-image: url(../images/bg2.webp);
+    background-size: cover;
+
+}
+
 #board{
 height: 550px;
 width: 550px;
-border: 1px solid;
+border: 10px solid;
 margin: auto;
 position: relative;
 background-image: url("../images/grass1.png");
 background-size: contain;
 overflow: hidden;
+}
+
+#btn-cont {
+    width: 550px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    background-color: rgb(108, 230, 77);
+    font-size: x-large;
+    font-weight: bold;
+    border: 5px solid black;
 }
 
 #road{
@@ -63,13 +88,14 @@ position: absolute;
 /* background-color: brown; */
 background-image: url("../images/0.png");
 background-size: cover;
+background-position: center;
 }
 
 #goal{
     width: 550px;
     height: 50px;
     position: absolute;
-    background-image: url("../images/goal.png");
-    background-size: containwwww;
+    background-image: url("../images/meta10.webp");
+    background-size: contain;
 }
 

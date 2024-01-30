@@ -46,7 +46,7 @@ function Player(x, y, parent, logs){
                 console.log("Viva");;
             } else {
                 console.log("MUEEEEEEEEEERTE");
-                /* self.isDead = true; */
+                self.isDead = true;
             }
         }
     }

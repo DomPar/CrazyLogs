@@ -11,7 +11,7 @@ var logs = []
 var logLeftId = null;
 var carLeftId = null;
 var playerDeadId = null;
-var player = new Player(250, 50, board, logs)
+var player = new Player(250, 500, board, logs)
 
 function gameStart() {
     player.insertPlayer()

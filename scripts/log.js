@@ -2,7 +2,7 @@ function Log(x, y, parent, logs, player, direction){
     var self = this
     this.x = x;
     this.y = y;
-    this.width = 100;
+    this.width = 150;
     this.height = 50;
     this.sprite = document.createElement('div');
     this.direction = direction;
@@ -38,9 +38,6 @@ function Log(x, y, parent, logs, player, direction){
         } else {
             return false;
         } 
-        
-
-        return true
     }
 
 /*     this.dead = function() {
