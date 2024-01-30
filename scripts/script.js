@@ -4,6 +4,8 @@ import {Log} from './log.js'
 
 var board = document.getElementById("board")
 var boton = document.getElementById("start")
+var sound = new Audio("../sounds/audio.ogg")
+sound.volume = 0.1
 var playerId = null;
 var carId = null;
 var cars = []
@@ -11,19 +13,17 @@ var logId = null;
 var logs = []
 var logLeftId = null;
 var carLeftId = null;
-var playerDeadId = null;
 var player = new Player(250, 500, board, logs)
 var estadoToggle = true;
 
 function gameStart() {
     player.insertPlayer()
     playerId = setInterval(movement, 200)
-    /* playerDeadId = setInterval(player.dead, 50) */
     carId = setInterval(createCar, 2000)
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
     logLeftId = setInterval(createLogLeft, 10000)
-    boton.innerText = "Reset"
+    boton.innerText = "Reset";
 }
 
 function movement() {
@@ -38,6 +38,8 @@ function movement() {
         clearInterval(logLeftId)
         cars.forEach(function(car){clearInterval(car.timerId)})
         logs.forEach(function(log){clearInterval(log.timerId)})
+        sound.pause();
+        sound.currentTime = 0;
     }
     if (player.won === true) {
         clearInterval(playerId)
@@ -112,8 +114,11 @@ window.addEventListener('keyup', function()
 start.addEventListener("click",function() {
     if (estadoToggle) {
         gameStart()
+        sound.play();
     } else {
-        window.reload();
+        location.reload();
+        sound.pause();
+        sound.currentTime = 0;
     }
     estadoToggle = !estadoToggle
 });
