@@ -3,7 +3,6 @@ import {Car} from './car.js'
 import {Log} from './log.js'
 
 var board = document.getElementById("board")
-var player = new Player(250, 500, board)
 var playerId = null;
 var carId = null;
 var cars = []
@@ -11,14 +10,17 @@ var logId = null;
 var logs = []
 var logLeftId = null;
 var carLeftId = null;
+var playerDeadId = null;
+var player = new Player(255, 500, board, logs)
 
 function gameStart() {
     player.insertPlayer()
-    playerId = setInterval(movement, 50)
+    playerId = setInterval(movement, 200)
+    playerDeadId = setInterval(player.dead, 50)
     carId = setInterval(createCar, 2000)
     carLeftId = setInterval(createCarLeft, 2000)
-    logId = setInterval(createLog, 4000)
-    logLeftId = setInterval(createLogLeft, 6000)
+    logId = setInterval(createLog, 5000)
+    logLeftId = setInterval(createLogLeft, 10000)
 
 }
 
