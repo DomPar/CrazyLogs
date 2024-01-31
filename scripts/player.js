@@ -57,29 +57,6 @@ function Player(x, y, parent, logs){
             self.sprite.style.left = self.x + 'px'
         }
     }
-
-
-
-/* 
-    this.movePlayerX = function() {
-        var newX = self.x + 50 * self.directionX
-        if (newX >= 0 && newX <= 500) {
-            self.x = newX
-            self.sprite.style.left = self.x + 'px'
-        }
-    }
-
-    this.movePlayerY = function() {
-        var newY = self.y + 50 * self.directionY;
-        if (newY >= 0 && newY <= 500) {
-            self.y = newY
-            self.sprite.style.top = self.y + 'px'
-        }
-        if (self.y === 0) {
-            console.log("Ganaste");
-            self.won = true;
-        }
-    } */
     
     this.dead = function () {
         if (self.y <= 200 && self.y >= 100) {

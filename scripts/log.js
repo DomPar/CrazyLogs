@@ -16,7 +16,6 @@ function Log(x, y, parent, logs, player, direction){
     }
 
     this.moveLog = function() {
-/*         self.isInLog() */
         if(self.direction === 1){
             self.x += 1
             self.sprite.style.left = self.x + 'px'
@@ -30,43 +29,14 @@ function Log(x, y, parent, logs, player, direction){
                 self.removeLog()
             }
         }
-/*         self.checkCollision() */
     }
+
     this.isInLog = function() {
         if (self.y === player.y && self.x <= player.x && self.x + self.width >= player.x + player.width) {
             return true;
         } else {
             return false;
         } 
-    }
-
-/*     this.dead = function() {
-        if ((player.y <= 200 && player.y >= 100) && self.isInLog()) {
-            player.isDead = false;
-        } else if (player.y <= 200 && player.y >= 100) {
-            player.isDead = true;
-        }
-    }
- */
-    this.checkCollision = function() {
-        var overlap = (
-            this.x < player.x + player.width &&
-            this.y < player.y + player.height &&
-            this.x + this.width > player.x && 
-            this.y + this.height > player.y
-            )
-            console.log(this.x < player.x + player.width)
-            console.log(this.y < player.y + player.height);
-            console.log(this.x + this.width > player.x);
-            console.log(this.y + this.height > player.y)
-
-        if (overlap && player.y <= 200 && player.y >= 100){
-            player.isDead = false;
-            console.log("A salvo");
-        } else if (!overlap && player.y <= 200 && player.y >= 100) {
-/*             player.isDead = true; */
-            console.log("Muerta");
-        }
     }
 
     this.removeLog = function() {
