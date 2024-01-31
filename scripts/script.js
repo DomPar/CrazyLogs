@@ -18,12 +18,17 @@ var estadoToggle = true;
 
 function gameStart() {
     player.insertPlayer()
-    playerId = setInterval(movement, 200)
+    /* playerId = setInterval(movement, 200) */
+    setTimeout(startMovement, 6000)
     carId = setInterval(createCar, 2000)
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
     logLeftId = setInterval(createLogLeft, 10000)
     boton.innerText = "Reset";
+}
+
+function startMovement() {
+    playerId = setInterval(movement, 200)
 }
 
 function movement() {
@@ -49,6 +54,8 @@ function movement() {
         clearInterval(logLeftId)
         cars.forEach(function(car){clearInterval(car.timerId)})
         logs.forEach(function(log){clearInterval(log.timerId)})
+        sound.pause();
+        sound.currentTime = 0;
     }
 }
 
