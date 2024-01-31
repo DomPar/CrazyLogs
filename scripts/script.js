@@ -17,11 +17,12 @@ var logLeftId = null;
 var carLeftId = null;
 var player = new Player(250, 500, board, logs)
 var estadoToggle = true;
+var gameStarted = false;
 
 function gameStart() {
     player.insertPlayer()
-    /* playerId = setInterval(movement, 200) */
-    setTimeout(startMovement, 3000)
+    setTimeout(startGame, 3000)
+    playerId = setInterval(update, 200)
     carId = setInterval(createCar, 2000)
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
@@ -29,14 +30,9 @@ function gameStart() {
     boton.innerText = "Reset";
 }
 
-function startMovement() {
-    playerId = setInterval(movement, 200)
-}
-
-function movement() {
+function update() {
     if (!player.isDead) {
-        player.movePlayerX();
-        player.movePlayerY();
+
     } else {
         clearInterval(playerId)
         clearInterval(carId)
@@ -97,33 +93,37 @@ function createLogLeft() {
 }
 
 window.addEventListener('keydown', function(e){
-    switch (e.key) {
-        case 'w':
-            player.directionY = -1
-            break;
-
-        case 'a':
-            player.directionX = -1
-            break;
-        
-        case 's':
-            player.directionY = 1
-            break;
-
-        case 'd':
-            player.directionX = 1
-            break;
-
-        default:
-            break;
+    if (gameStarted) {
+        switch (e.key.toLowerCase()) {
+            case 'w':
+            case 'arrowup':
+                player.moveForward();
+                break;
+    
+            case 'a':
+            case 'arrowleft':
+                player.moveLeft();
+                break;
+            
+            case 'd':
+            case 'arrowright':
+                player.moveRigth();
+                break;
+    
+            case 's':
+            case 'arrowdown':
+                player.moveBackward();
+                break;
+    
+            default:
+                break;
+        }
     }
 })
 
-window.addEventListener('keyup', function()
-{
-    player.directionX = 0
-    player.directionY = 0
-})
+function startGame() { //Esta funcion sirve para decir que el juego ha empezado y lance el timeout que me hace esperar para moverme
+    gameStarted = true;
+}
 
 start.addEventListener("click",function() {
     if (estadoToggle) {
