@@ -23,6 +23,21 @@ body {
     visibility: hidden;
 }
 
+#win{
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    left: 20vh;
+    border: 10px solid rgba(255, 255, 255, 0);
+    background-image: url("../images/victoria.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(153, 202, 209, 0.8);
+    z-index: 4;
+    visibility: hidden;
+}
+
 #start {
     height: 50px;
     width: 100px;

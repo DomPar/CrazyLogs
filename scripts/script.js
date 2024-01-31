@@ -7,6 +7,7 @@ var boton = document.getElementById("start")
 var sound = new Audio("../sounds/audio.ogg")
 sound.volume = 0.1
 var overScreen = document.getElementById("gameover")
+var winScreen = document.getElementById("win")
 var playerId = null;
 var carId = null;
 var cars = []
@@ -59,6 +60,9 @@ function movement() {
         logs.forEach(function(log){clearInterval(log.timerId)})
         sound.pause();
         sound.currentTime = 0;
+        winScreen.style.visibility = "visible"
+        boton.style.top = 450 + "px";
+        boton.style.visibility = "visible";
     }
 }
 
