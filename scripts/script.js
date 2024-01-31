@@ -6,6 +6,7 @@ var board = document.getElementById("board")
 var boton = document.getElementById("start")
 var sound = new Audio("../sounds/audio.ogg")
 sound.volume = 0.1
+var overScreen = document.getElementById("gameover")
 var playerId = null;
 var carId = null;
 var cars = []
@@ -19,7 +20,7 @@ var estadoToggle = true;
 function gameStart() {
     player.insertPlayer()
     /* playerId = setInterval(movement, 200) */
-    setTimeout(startMovement, 6000)
+    setTimeout(startMovement, 3000)
     carId = setInterval(createCar, 2000)
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
@@ -45,6 +46,8 @@ function movement() {
         logs.forEach(function(log){clearInterval(log.timerId)})
         sound.pause();
         sound.currentTime = 0;
+        overScreen.style.visibility = "visible";
+        boton.style.visibility = "visible";
     }
     if (player.won === true) {
         clearInterval(playerId)
@@ -122,6 +125,8 @@ start.addEventListener("click",function() {
     if (estadoToggle) {
         gameStart()
         sound.play();
+        boton.style.visibility = "hidden";
+        boton.style.top = 450 + "px";
     } else {
         location.reload();
         sound.pause();
