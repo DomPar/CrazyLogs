@@ -40,6 +40,14 @@ function Log(x, y, parent, logs, player, direction){
         } 
     }
 
+/*     this.dead = function() {
+        if ((player.y <= 200 && player.y >= 100) && self.isInLog()) {
+            player.isDead = false;
+        } else if (player.y <= 200 && player.y >= 100) {
+            player.isDead = true;
+        }
+    }
+ */
     this.checkCollision = function() {
         var overlap = (
             this.x < player.x + player.width &&

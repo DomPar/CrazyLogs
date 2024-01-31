@@ -18,6 +18,7 @@ var carLeftId = null;
 var player = new Player(250, 500, board, logs)
 var estadoToggle = true;
 var gameStarted = false;
+var deadId = null;
 
 function gameStart() {
     player.insertPlayer()
@@ -27,6 +28,7 @@ function gameStart() {
     carLeftId = setInterval(createCarLeft, 2000)
     logId = setInterval(createLog, 5000)
     logLeftId = setInterval(createLogLeft, 10000)
+    deadId = setInterval(player.dead, 50)
     boton.innerText = "Reset";
 }
 
