@@ -40,7 +40,6 @@ function Car(x, y, parent, cars, player, direction){
             this.y + this.height > player.y
         ) {
             player.isDead = true;
-            console.log("La cagaste");
         }
     }
 

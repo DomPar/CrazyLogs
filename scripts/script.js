@@ -6,6 +6,8 @@ var board = document.getElementById("board")
 var boton = document.getElementById("start")
 var sound = new Audio("../sounds/audio.ogg")
 sound.volume = 0.1
+var deadSound = new Audio("../sounds/death.mp3")
+var winSound = new Audio("../sounds/victory.wav")
 var overScreen = document.getElementById("gameover")
 var winScreen = document.getElementById("win")
 var playerId = null;
@@ -45,6 +47,8 @@ function update() {
         logs.forEach(function(log){clearInterval(log.timerId)})
         sound.pause();
         sound.currentTime = 0;
+        deadSound.play();
+        deadSound.currentTime = 0;
         overScreen.style.visibility = "visible";
         boton.style.visibility = "visible";
     }
@@ -61,6 +65,7 @@ function update() {
         winScreen.style.visibility = "visible"
         boton.style.top = 450 + "px";
         boton.style.visibility = "visible";
+        winSound.play()
     }
 }
 

@@ -25,7 +25,6 @@ function Player(x, y, parent, logs){
             self.sprite.style.top = self.y + 'px'
         }
         if (self.y === 0) {
-            console.log("Ganaste");
             self.won = true;
         }
     }
@@ -37,7 +36,6 @@ function Player(x, y, parent, logs){
                 self.sprite.style.top = self.y + 'px'
             }
             if (self.y === 0) {
-                console.log("Ganaste");
                 self.won = true;
             }
         }
@@ -62,9 +60,7 @@ function Player(x, y, parent, logs){
         if (self.y <= 200 && self.y >= 100) {
             if(logs.some(log => log.isInLog())){
                 self.isDead = false;
-                console.log("Viva");;
             } else {
-                console.log("MUEEEEEEEEEERTE");
                 self.isDead = true;
             }
         }
