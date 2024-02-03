@@ -49,7 +49,7 @@ function Car(x, y, parent, cars, player, direction){
         clearInterval(this.timerId)
     }
 
-    this.timerId = setInterval(this.moveCar, 50)
+    this.timerId = setInterval(this.moveCar, 25)
 }
 
 

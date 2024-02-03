@@ -17,14 +17,20 @@ function Log(x, y, parent, logs, player, direction){
 
     this.moveLog = function() {
         if(self.direction === 1){
-            self.x += 1
+            self.x += 50
             self.sprite.style.left = self.x + 'px'
+            if (self.isInLog()){
+                player.moveRigth();
+            }
             if (self.x >= 450) {
                 self.removeLog()
             }
         } else {
-            self.x -= 1
+            self.x -= 50
             self.sprite.style.left = self.x + 'px'
+            if (self.isInLog()){
+                player.moveLeft();
+            }
             if (self.x <= 0) {
                 self.removeLog()
             }
@@ -45,7 +51,7 @@ function Log(x, y, parent, logs, player, direction){
         clearInterval(this.timerId)
     }
 
-    this.timerId = setInterval(this.moveLog, 50)
+    this.timerId = setInterval(this.moveLog, 1000)
 }
 
 
